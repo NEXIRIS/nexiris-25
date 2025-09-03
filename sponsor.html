@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NEXIRIS'25 Sponsorship</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Poppins:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<style>
+  /* ======= Chief Blue Theme + layout (applied to your original markup) ======= */
+  :root{
+    --bg-main: #0A0F1C;       /* page background (deep navy) */
+    --bg-dark: #111827;       /* card / section dark */
+    --chief-dark: #1E3A8A;    /* brand dark */
+    --chief-mid: #2563EB;     /* brand mid */
+    --chief-light: #38BDF8;   /* bright accent */
+    --gold: #EAB308;          /* premium */
+    --silver: #C0C0C0;       /* silver color */
+    --text-light: #F3F4F6;
+    --muted: #9CA3AF;
+    --card-border: rgba(255,255,255,0.04);
+    --glass: rgba(255,255,255,0.03);
+
+    --title-gradient: linear-gradient(135deg,#0f1b33,#183262);
+    --gold-gradient: linear-gradient(135deg,#2a2100,#7a6200);
+    --silver-gradient: linear-gradient(135deg,#1a1a1a,#4a4a4a);
+    --event-gradient: linear-gradient(135deg,#0f1726,#163a7a);
+    --tshirt-gradient: linear-gradient(135deg,#0f1726,#15305f);
+    --stall-gradient: linear-gradient(135deg,#0f1726,#162b57);
+    --merch-gradient: linear-gradient(135deg,#0f1726,#1a3a6a);
+    --media-gradient: linear-gradient(135deg,#0f1726,#15305f);
+    --tech-gradient: linear-gradient(135deg,#071026,#10284f);
+    --food-gradient: linear-gradient(135deg,#0f1726,#18324f);
+    --entertainment-gradient: linear-gradient(135deg,#0f1726,#10263b);
+    --digital-gradient: linear-gradient(135deg,#071026,#0f2946);
+    --travel-gradient: linear-gradient(135deg,#071026,#10263b);
+
+    font-family: 'Segoe UI', Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html,body { height: 100%; }
+
+  body {
+    background: var(--bg-main);
+    color: var(--text-light);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    overflow-x: hidden;
+  }
+
+  /* subtle grid background */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(56,189,248,0.03) 1px, transparent 1px),
+      linear-gradient(rgba(56,189,248,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: -1;
+    opacity: 0.9;
+  }
+
+  /* Header */
+  header {
+    text-align: center;
+    padding: 56px 20px;
+    border-bottom: 3px solid var(--chief-mid);
+    background: linear-gradient(180deg,var(--chief-dark), #0d1b3a);
+    color: var(--text-light);
+    backdrop-filter: blur(6px);
+  }
+  .glitch {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text-light);
+    letter-spacing: 0.6px;
+    animation: flicker 3s infinite alternate;
+  }
+  header p { color: #c9d6ea; margin-top: 0.45rem; font-size: 1.05rem; }
+
+  @keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { text-shadow: 0 0 6px var(--chief-light); }
+    20%, 24%, 55% { text-shadow: none; }
+  }
+
+  /* container & grid */
+  .container {
+    max-width: 1400px;
+    margin: 32px auto;
+    padding: 20px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  /* cards */
+  .card {
+    padding: 20px;
+    border-radius: 14px;
+    color: var(--text-light);
+    box-shadow: 0 6px 24px rgba(2,6,23,0.6);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--card-border);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(9,18,40,0.7);
+  }
+  .card i {
+    font-size: 1.9rem;
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--chief-light);
+  }
+  .card h2 {
+    margin: 0 0 8px 0;
+    font-size: 1.15rem;
+    color: var(--chief-mid);
+  }
+  .card ul { margin: 8px 0 14px 0; padding-left: 18px; color: #dbe8ff; font-weight: 600; }
+  .card ul li { margin-bottom: 8px; font-size: .95rem; color: #cbdcff; }
+
+  /* sizes */
+  .premium { grid-column: span 4; min-height: 310px; position: relative; }
+  .partner { grid-column: span 2; min-height: 280px; }
+  .medium { min-height: 250px; }
+  .small { grid-column: span 2; min-width: 260px; justify-self: center; }
+
+  /* premium glow */
+  .premium {
+    border: 1px solid rgba(234,179,8,0.12);
+    background: linear-gradient(180deg, rgba(234,179,8,0.03), rgba(30,58,138,0.05));
+  }
+  .premium h2 { color: var(--gold); }
+  .premium i { color: var(--gold); }
+
+  /* gold partner */
+  .gold-partner h2 { color: var(--gold); }
+  .gold-partner i { color: var(--gold); }
+
+  /* silver partner */
+  .silver-partner h2 { color: var(--silver); }
+  .silver-partner i { color: var(--silver); }
+
+  /* per-card subtle backgrounds */
+  .bg-title { background: var(--title-gradient); }
+  .bg-gold { background: var(--gold-gradient); }
+  .bg-silver { background: var(--silver-gradient); }
+  .bg-event { background: var(--event-gradient); }
+  .bg-tshirt { background: var(--tshirt-gradient); }
+  .bg-stall { background: var(--stall-gradient); }
+  .bg-tech { background: var(--tech-gradient); }
+  .bg-merch { background: var(--merch-gradient); }
+  .bg-media { background: var(--media-gradient); }
+  .bg-food { background: var(--food-gradient); }
+  .bg-ent { background: var(--entertainment-gradient); }
+  .bg-dig { background: var(--digital-gradient); }
+  .bg-travel { background: var(--travel-gradient); }
+
+  /* CTA button on cards */
+  .card .cta {
+    margin-top: auto;
+    align-self: flex-start;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 2px solid var(--chief-mid);
+    background: transparent;
+    color: var(--chief-mid);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .22s ease;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .card .cta span {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  .card .cta:hover span {
+    transform: translateX(4px);
+  }
+  .card .cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--chief-mid);
+    transition: width 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    z-index: -1;
+  }
+  .premium .cta,
+  .gold-partner .cta,
+  .silver-partner .cta {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  .premium .cta::before,
+  .gold-partner .cta::before {
+    background: var(--gold);
+  }
+  .silver-partner .cta {
+    border-color: var(--silver);
+    color: var(--silver);
+  }
+  .silver-partner .cta::before {
+    background: var(--silver);
+  }
+  .card .cta:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+  }
+  .premium .cta:hover,
+  .gold-partner .cta:hover {
+    box-shadow: 0 10px 20px rgba(234, 179, 8, 0.3);
+  }
+  .silver-partner .cta:hover {
+    box-shadow: 0 10px 20px rgba(192, 192, 192, 0.3);
+  }
+  .card .cta:hover::before {
+    width: 100%;
+  }
+
+  /* Add glowing effect to icons on card hover */
+  .card:hover i {
+    text-shadow: 0 0 8px var(--chief-light);
+    animation: pulse-glow 1.5s infinite alternate;
+  }
+
+  /* For premium cards (gold glow) */
+  .premium:hover i,
+  .gold-partner:hover i {
+    text-shadow: 0 0 12px var(--gold);
+    animation: pulse-gold 1.5s infinite alternate;
+  }
+  
+  /* For silver cards */
+  .silver-partner:hover i {
+    text-shadow: 0 0 12px var(--silver);
+    animation: pulse-silver 1.5s infinite alternate;
+  }
+
+  /* Glow animations */
+  @keyframes pulse-glow {
+    0% { text-shadow: 0 0 8px var(--chief-light); }
+    100% { text-shadow: 0 0 16px var(--chief-light), 0 0 24px rgba(56, 189, 248, 0.4); }
+  }
+
+  @keyframes pulse-gold {
+    0% { text-shadow: 0 0 8px var(--gold); }
+    100% { text-shadow: 0 0 16px var(--gold), 0 0 24px rgba(234, 179, 8, 0.6); }
+  }
+  
+  @keyframes pulse-silver {
+    0% { text-shadow: 0 0 8px var(--silver); }
+    100% { text-shadow: 0 0 16px var(--silver), 0 0 24px rgba(192, 192, 192, 0.6); }
+  }
+
+  /* Form container styles - UPDATED FOR BETTER VISIBILITY */
+  .form-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 10, 20, 0.98); /* Darker overlay */
+    z-index: 1000;
+    display: none;
+    align-items: flex-start; /* Align to top */
+    justify-content: center;
+    overflow-y: auto;
+    padding: 60px 20px 40px; /* More padding */
+  }
+
+  /* Close button - UPDATED */
+  .close-btn {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: var(--text-light);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+  }
+
+  .close-btn:hover {
+    background: var(--chief-mid);
+    transform: rotate(90deg) scale(1.1);
+  }
+
+  /* Form styles - UPDATED FOR BETTER READABILITY */
+  .form-container form {
+    margin: 0;
+    max-width: 700px;
+    width: 100%;
+    animation: fadeInUp 0.5s ease;
+    background: var(--bg-dark);
+    border: 1px solid var(--chief-mid);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+    position: relative;
+  }
+
+  form h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+    color: var(--chief-light) !important;
+    text-shadow: 0 2px 10px rgba(56, 189, 248, 0.3);
+  }
+
+  form label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    color: #e0f2fe !important;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  form input, form select, form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    background: rgba(0,0,0,0.2) !important;
+    color: white !important;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  form input::placeholder, form textarea::placeholder {
+    color: #9fb6da;
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  form input:focus, form select:focus, form textarea:focus {
+    border-color: var(--chief-light) !important;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+  }
+
+  /* Fix duplicate email in original: website uses type=url */
+  input[type="url"] { font-weight: 600; }
+
+  form .submit {
+    margin-top: 30px;
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    background: linear-gradient(90deg,var(--chief-mid),var(--chief-dark));
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(37,99,235,0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  form .submit:hover {
+    background: linear-gradient(90deg,var(--chief-light),var(--chief-mid));
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.4);
+    transform: translateY(-2px);
+  }
+
+  /* success message */
+  #formMessage {
+    display: none;
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    font-weight: 700;
+    color: #083344;
+    background: linear-gradient(90deg,#ecffeb,#e6fef1);
+    border: 1px solid #bbf7d0;
+    text-align: center;
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* responsive */
+  @media (max-width: 992px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .premium { grid-column: span 2; }
+    .partner { grid-column: span 1; }
+    .small { grid-column: span 2; }
+    .form-container form {
+      padding: 30px;
+    }
+  }
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+    .premium { grid-column: span 1; min-height: 260px; }
+    .partner { grid-column: span 1; }
+    .small { grid-column: span 1; }
+    header { padding: 28px 16px; }
+    .glitch { font-size: 1.6rem; }
+    .form-container {
+      padding: 50px 15px 30px;
+    }
+    .form-container form {
+      padding: 25px 20px;
+    }
+    .close-btn {
+      top: 15px;
+      right: 15px;
+      width: 36px;
+      height: 36px;
+      font-size: 1.2rem;
+    }
+    form h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    form input, form select, form textarea {
+      padding: 12px 14px;
+    }
+  }
+</style>
+</head>
+<body>
+  <header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-10 py-4 bg-black/30 backdrop-blur-md w-full">
+  <div class="relative group flex items-center gap-4">
+    <a href="https://www.siwscollege.edu.in/" target="_blank" class="flex items-center gap-4 text-white no-underline hover:opacity-80 transition">
+      <img src="siws.png" alt="SIWS College Logo" class="h-12 w-12 object-contain"/>
+      <h2 class="tech-subtitle text-xl md:text-2xl font-orbitron font-bold uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-lime-300 via-teal-300 to-cyan-400 relative z-10">
+        S.I.W.S College
+      </h2>
+    </a>
+    <div class="absolute left-0 top-full mt-2 w-72 bg-white rounded-xl shadow-lg border border-cyan-400 p-4 flex items-center gap-4 opacity-0 pointer-events-none scale-y-0 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:scale-y-100 transition-all duration-300 origin-top z-50">
+      <img src="siws.png" alt="SIWS College Logo" class="h-14 w-14 object-contain"/>
+      <span class="text-gray-900 font-bold text-base leading-tight">
+        N.R. SWAMY COLLEGE OF COMMERCE & ECONOMICS AND SMT. THIRUMALAI COLLEGE OF SCIENCE (AUTONOMOUS)
+      </span>
+    </div>
+  </div>
+   <div class="flex items-center">
+    <button
+      style="padding: 12px 28px; font-family: 'Orbitron', sans-serif; font-size: 1rem; text-transform: uppercase; color: #00f7ff; background: transparent; border: 2px solid #00f7ff; border-radius: 12px; box-shadow: 0 0 12px #00f7ff33, 0 0 24px #00f7ff22; cursor: pointer; transition: all 0.3s ease-in-out;"
+      onmouseover="this.style.boxShadow='0 0 16px #00f7ff, 0 0 32px #00f7ff88, 0 0 48px #00f7ff55'; this.style.transform='scale(1.05)'"
+      onmouseout="this.style.boxShadow='0 0 12px #00f7ff33, 0 0 24px #00f7ff22'; this.style.transform='scale(1)'"
+      onclick="sessionStorage.setItem('skipIntro', 'true'); window.location.href='index.html#events'">
+      Back
+    </button>
+</div>
+</header>
+  <!-- Spacer to push content below fixed header -->
+  <div class="h-24"></div>
+
+<section class="fest-title-section">
+    <div class="tech-effect"></div>
+    <h1 class="fest-title">NEXIRIS'25</h1>
+    <p class="fest-subtitle">TECHNICAL SYMPOSIUM & INNOVATION SUMMIT</p>
+  </section>
+
+  
+<div class="container">
+  <div class="grid">
+    <!-- Title Sponsor (Premium) -->
+    <div class="card premium bg-title" data-package="Title Sponsor" aria-labelledby="titleSponsor">
+      <i class="fas fa-crown" aria-hidden="true"></i>
+      <h2 id="titleSponsor">Title Sponsor</h2>
+      <ul>
+        <li>Naming rights: "NEXIRIS'25 presented by [Your Brand]"</li>
+        <li>Logo on all marketing collaterals, banners, and merchandise</li>
+        <li>Prime branding on main stage, website, and social media</li>
+        <li>Opportunity for keynote address/opening remarks</li>
+        <li>Exclusive media coverage mentions</li>
+        <li>VIP passes & special recognition during the fest</li>
+      </ul>
+      <a href="titlesponor.html" class="cta" aria-label="Enroll as Title Sponsor"><span>Enroll Now</span></a>
+    </div>
+
+    <!-- Gold and Silver Partners (dedicated row) -->
+    <div class="card partner gold-partner bg-gold" data-package="Gold Partner" aria-labelledby="goldPartner">
+      <i class="fas fa-medal" aria-hidden="true"></i>
+      <h2 id="goldPartner">Gold Partner</h2>
+      <ul>
+        <li>Prominent logo placement on all event materials</li>
+        <li>Prime branding space at main event areas</li>
+        <li>Featured mentions in all press releases</li>
+        <li>VIP passes for company representatives</li>
+        <li>Exclusive booth space at prime location</li>
+        <li>Social media spotlight features</li>
+      </ul>
+      <a href="goldpartnersponsor.html" class="cta" aria-label="Enroll as Gold Partner"><span>Enroll Now</span></a>
+    </div>
+
+    <div class="card partner silver-partner bg-silver" data-package="Silver Partner" aria-labelledby="silverPartner">
+      <i class="fas fa-award" aria-hidden="true"></i>
+      <h2 id="silverPartner">Silver Partner</h2>
+      <ul>
+        <li>Logo placement on main event banners</li>
+        <li>Branding at key event zones</li>
+        <li>Mentions in press releases</li>
+        <li>VIP passes for company representatives</li>
+        <li>Booth space at event venue</li>
+      </ul>
+      <a href="silverpartnersponsor.html" class="cta" aria-label="Enroll as Silver Partner"><span>Enroll Now</span></a>
+    </div>
+
+    <!-- Regular Sponsorship Options -->
+    <div class="card medium bg-event" data-package="Event Sponsor" aria-labelledby="eventSponsor">
+      <i class="fas fa-calendar-check" aria-hidden="true"></i>
+      <h2 id="eventSponsor">Event Sponsor</h2>
+      <ul>
+        <li>Branding on specific event stages or competitions</li>
+        <li>Opportunity to interact directly with event participants</li>
+        <li>Logo on event-specific banners and social media posts</li>
+      </ul>
+      <button type="button" class="cta" aria-label="Enroll as Event Sponsor"><span>Enroll Now</span></button>
+    </div>
+
+    <div class="card medium bg-tshirt" data-package="Wearable Sponsor" aria-labelledby="tshirtSponsor">
+      <i class="fas fa-tshirt" aria-hidden="true"></i>
+      <h2 id="tshirtSponsor">Wearable Sponsor</h2>
+      <ul>
+        <li>Logo printed on official fest apparel worn by participants and volunteers</li>
+        <li>Inclusion in merchandising campaigns</li>
+        <li>Brand presence during distribution of merchandise</li>
+      </ul>
+      <button type="button" class="cta" aria-label="Enroll as Wearable Sponsor"><span>Enroll Now</span></button>
+    </div>
+
+    <div class="card medium bg-stall" data-package="Stall Sponsor" aria-labelledby="stallSponsor">
+      <i class="fas fa-store" aria-hidden="true"></i>
+      <h2 id="stallSponsor">Stall Sponsor</h2>
+      <ul>
+        <li>Branded stall space to showcase products or services</li>
+        <li>Prime stall space</li>
+        <li>Audience engagement</li>
+      </ul>
+      <button type="button" class="cta" aria-label="Enroll as Stall Sponsor"><span>Enroll Now</span></button>
+    </div>
+
+    <div class="card medium bg-tech" data-package="Tech Zone Sponsor" aria-labelledby="techSponsor">
+      <i class="fas fa-microchip" aria-hidden="true"></i>
+      <h2 id="techSponsor">Tech Sponsor</h2>
+      <ul>
+        <li>Branding in tech zone</li>
+        <li>Workshops & demos</li>
+      </ul>
+      <button type="button" class="cta" aria-label="Enroll as Tech Sponsor"><span>Enroll Now</span></button>
+    </div>
+
+    <div class="card medium bg-merch" data-package="Merchandise Sponsor" aria-labelledby="merchSponsor">
+      <i class="fas fa-box-open" aria-hidden="true"></i>
+      <h2 id="merchSponsor">Merchandise Sponsor</h2>
+      <ul>
+        <li>Brand presence during distribution of merchandise</li>
+        <li>Freebie distribution</li>
+        <li>Brand games</li>
+      </ul>
+      <button type="button" class="cta" aria-label="Enroll as Merchandise Sponsor"><span>Enroll Now</span></button>
+    </div>
+
+    <div class="card medium bg-media" data-package="Media Sponsor" aria-labelledby="mediaSponsor">
+      <i class="fas fa-bullhorn" aria-hidden="true"></i>
+      <h2 id="mediaSponsor">Media Partner</h2>
+      <ul>
+        <li>Exclusive media rights for coverage</li>
+        <li>Branding on event press kits and media backdrops</li>
+        <li>Regular mentions in press releases and interviews</li>
+        <li>Opportunity to run sponsored content</li>
+      </ul>
+      <button type="button" class="cta" aria-label="Enroll as Media Sponsor"><span>Enroll Now</span></button>
+    </div>
+
+    <div class="card medium bg-food" data-package="Food & Beverage Sponsor" aria-labelledby="foodSponsor">
+      <i class="fas fa-utensils" aria-hidden="true"></i>
+      <h2 id="foodSponsor">Food & Beverage Partner</h2>
+      <ul>
+        <li>Branding in food courts and refreshment stalls</li>
+        <li>Opportunities for product sampling and giveaways</li>
+        <li>Logo on menus and hospitality materials</li>
+      </ul>
+      <button type="button" class="cta" aria-label="Enroll as Food Sponsor"><span>Enroll Now</span></button>
+    </div>
+
+    <div class="card medium bg-ent" data-package="Entertainment Sponsor" aria-labelledby="entSponsor">
+      <i class="fas fa-tv" aria-hidden="true"></i>
+      <h2 id="entSponsor">Entertainment Sponsor</h2>
+      <ul>
+        <li>Branding on stage backdrops and during performances</li>
+        <li>Opportunity to host or co-host entertainment segments</li>
+        <li>Logo on event entertainment schedules and promotions</li>
+      </ul>
+      <button type="button" class="cta" aria-label="Enroll as Entertainment Sponsor"><span>Enroll Now</span></button>
+    </div>
+
+    <div class="card small bg-dig" data-package="Hospitality Partner" aria-labelledby="hospSponsor">
+      <i class="fas fa-hotel" aria-hidden="true"></i>
+      <h2 id="hospSponsor">Hospitality Partner</h2>
+      <ul>
+        <li>Branding in VIP lounges and guest accommodation</li>
+        <li>Logo on welcome kits and hospitality materials</li>
+        <li>Recognition during guest introductions and ceremonies</li>
+      </ul>
+      <button type="button" class="cta" aria-label="Enroll as Hospitality Partner"><span>Enroll Now</span></button>
+    </div>
+
+    <div class="card small bg-travel" data-package="Prize Partner" aria-labelledby="prizeSponsor">
+      <i class="fas fa-gift" aria-hidden="true"></i>
+      <h2 id="prizeSponsor">Prize Partner</h2>
+      <ul>
+        <li>Logo on trophies, certificates, and awards</li>
+        <li>Opportunity to present awards to winners</li>
+        <li>Recognition in event closing ceremonies</li>
+      </ul>
+      <button type="button" class="cta" aria-label="Enroll as Prize Partner"><span>Enroll Now</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- Form Container (initially hidden) -->
+<div id="formContainer" class="form-container">
+  <button id="closeForm" class="close-btn" aria-label="Close form">
+    <i class="fas fa-times"></i>
+  </button>
+    <form id="sponsorForm" enctype="multipart/form-data" autocomplete="on" action="https://docs.google.com/forms/d/e/1FAIpQLSfPJ8fD7kXocUZtgzImTAf_bdxq8hQV5jI2aScDS8KYnly0Vg/formResponse" method="POST" class="space-y-6" target="hidden_iframe" onsubmit="formSubmitted()">
+    <div id="formMessage" role="status" aria-live="polite"></div>
+
+    <h2 id="formTitle">Enroll as a Sponsor</h2>
+
+    <label for="company">Company Name</label>
+    <input type="text" id="company" name="entry.1949956326" placeholder="Enter your company name" required>
+
+    <label for="contact">Contact Person</label>
+    <input type="text" id="contact" name="entry.1975128622" placeholder="Your name" required>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="entry.1799132939" placeholder="email@example.com" required>
+
+    <label for="website">Company Website</label>
+    <input type="url" id="website" name="entry.1602584465" placeholder="https://www.example.com/" inputmode="url">
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="entry.138990658" placeholder="+91 98765 43210" pattern="[0-9+ ()-]{7,20}">
+
+    <label for="package">Select Sponsorship Package</label>
+    <select id="package" name="entry.1952363263" required>
+      <option value="" disabled selected>Select a package</option>
+      <option value="Event Sponsor">Event Sponsor</option>
+      <option value="Wearable Sponsor">Wearable Sponsor</option>
+      <option value="Stall Sponsor">Stall Sponsor</option>
+      <option value="Tech Zone Sponsor">Tech Zone Sponsor</option>
+      <option value="Merchandise Sponsor">Merchandise Sponsor</option>
+      <option value="Media Sponsor">Media Sponsor</option>
+      <option value="Food & Beverage Sponsor">Food & Beverage Sponsor</option>
+      <option value="Entertainment Sponsor">Entertainment Sponsor</option>
+      <option value="Hospitality Partner">Hospitality Partner</option>
+      <option value="Prize Partner">Prize Partner</option>
+    </select>
+
+    <label for="message">Additional Message</label>
+    <textarea id="message" name="entry.40332492" placeholder="Write any specific requirements or questions here..." rows="4"></textarea>
+
+    <button type="submit" class="submit">Submit Enrollment</button>
+  </form>
+</div>
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+        onload="iframeLoaded()"></iframe>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+let submitting = false;
+function formSubmitted() {
+    submitting = true; // mark that we just submitted
+}
+
+function iframeLoaded() {
+    if (submitting) {
+        submitting = false;
+
+        // Show stylish alert after submission
+        Swal.fire({
+            title: '✅ Thank you for registering!',
+            text: 'See you at the Tech Fest.',
+            icon: 'success',
+            confirmButtonText: 'Go Back',
+            confirmButtonColor: '#3085d6',
+            background: '#1e1e1e',
+            color: '#fff'
+        }).then(() => {
+            // Redirect to index.html
+            window.location.href = 'sponsor.html';
+        });
+    }
+}
+</script>
+
+<script>
+  // 1) Card CTA autofill/select + show form (only for non-premium cards)
+  document.querySelectorAll('.card .cta').forEach(btn => {
+    if (btn.tagName === 'BUTTON') {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.card');
+        const pkg = card.getAttribute('data-package') || '';
+        const select = document.getElementById('package');
+        
+        // Set the selected package
+        if (pkg) {
+          for (let opt of select.options) {
+            if (opt.value && opt.value.toLowerCase() === pkg.toLowerCase()) {
+              select.value = opt.value;
+              break;
+            }
+          }
+        }
+        
+        // Show form
+        const formContainer = document.getElementById('formContainer');
+        formContainer.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        // Scroll to top of form
+        setTimeout(() => {
+          formContainer.scrollTo(0, 0);
+        }, 10);
+      });
+    }
+  });
+
+  // 2) Close form handlers
+  document.getElementById('closeForm').addEventListener('click', () => {
+    document.getElementById('formContainer').style.display = 'none';
+    document.body.style.overflow = '';
+  });
+
+  // Close when clicking outside form
+  document.getElementById('formContainer').addEventListener('click', (e) => {
+    if (e.target === document.getElementById('formContainer')) {
+      document.getElementById('formContainer').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  });
+
+</script>
+
+</body> 
+</html>

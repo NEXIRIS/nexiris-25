@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXIRIS '25 Registration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <style>
+    :root {
+      --background-dark: #0D0D18;
+      --primary-blue: #00BFFF;
+      --primary-cyan: #00FFFF;
+      --text-silver: #C0C0C0;
+    }
+    body {
+      background-color: var(--background-dark);
+      color: var(--text-silver);
+      font-family: 'Roboto Mono', monospace;
+      margin: 0;
+      padding: 0;
+    }
+    .font-orbitron {
+      font-family: 'Orbitron', sans-serif;
+    }
+    .glow-button {
+      box-shadow: 0 0 5px var(--primary-blue), 0 0 10px var(--primary-blue), 0 0 20px var(--primary-blue);
+    }
+    .card-glow {
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2), 0 0 20px rgba(255, 0, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-glow:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.5), 0 0 35px rgba(255, 0, 255, 0.5);
+    }
+  </style>
+</head>
+<body>
+    
+  <!-- Background video -->
+  <video autoplay muted loop class="fixed z-[-1] w-full h-full object-cover">
+    <source src="video2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <!-- SIWS Header -->
+  <!-- SIWS Header -->
+<header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-10 py-4 bg-black/30 backdrop-blur-md w-full">
+  <div class="relative group flex items-center gap-4">
+    <a href="https://www.siwscollege.edu.in/" target="_blank" class="flex items-center gap-4 text-white no-underline hover:opacity-80 transition">
+      <img src="siws.png" alt="SIWS College Logo" class="h-12 w-12 object-contain"/>
+      <h2 class="tech-subtitle text-xl md:text-2xl font-orbitron font-bold uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-lime-300 via-teal-300 to-cyan-400 relative z-10">
+        S.I.W.S College
+      </h2>
+    </a>
+    <div class="absolute left-0 top-full mt-2 w-72 bg-white rounded-xl shadow-lg border border-cyan-400 p-4 flex items-center gap-4 opacity-0 pointer-events-none scale-y-0 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:scale-y-100 transition-all duration-300 origin-top z-50">
+      <img src="siws.png" alt="SIWS College Logo" class="h-14 w-14 object-contain"/>
+      <span class="text-gray-900 font-bold text-base leading-tight">
+        N.R. SWAMY COLLEGE OF COMMERCE & ECONOMICS AND SMT. THIRUMALAI COLLEGE OF SCIENCE (AUTONOMOUS)
+      </span>
+    </div>
+  </div>
+   <div class="flex items-center">
+    <button
+      style="padding: 12px 28px; font-family: 'Orbitron', sans-serif; font-size: 1rem; text-transform: uppercase; color: #00f7ff; background: transparent; border: 2px solid #00f7ff; border-radius: 12px; box-shadow: 0 0 12px #00f7ff33, 0 0 24px #00f7ff22; cursor: pointer; transition: all 0.3s ease-in-out;"
+      onmouseover="this.style.boxShadow='0 0 16px #00f7ff, 0 0 32px #00f7ff88, 0 0 48px #00f7ff55'; this.style.transform='scale(1.05)'"
+      onmouseout="this.style.boxShadow='0 0 12px #00f7ff33, 0 0 24px #00f7ff22'; this.style.transform='scale(1)'"
+      onclick="sessionStorage.setItem('skipIntro', 'true'); window.location.href='index.html'">
+      Back
+    </button>
+</div>
+</header>
+
+  <!-- Spacer to push content below fixed header -->
+  <div class="h-16"></div>
+
+  <!-- Registration Form -->
+  <section class="py-24 px-4 " id="registration">
+    <h2 class="text-4xl font-orbitron font-bold text-center mb-12 text-[var(--primary-cyan)]">Registration Form</h2>
+    <div class="max-w-2xl mx-auto bg-slate-900/50 p-8 rounded-xl shadow-xl card-glow">
+      <form action="https://docs.google.com/forms/d/e/1FAIpQLScVwDnDgG7ZQBNNrVzR1EqZYzoq0W1nW3RdkpjAF858ZF1Vjw/formResponse" method="POST" class="space-y-6">
+        <input type="hidden" id="selectedEvent" name="entry.1060993095" name="selectedEvent" value="">
+        <div>
+  <label class="block text-sm font-medium text-[var(--primary-cyan)] mb-2">Select Events</label>
+
+  <div class="space-y-2">
+    <!-- Each checkbox option -->
+    <label class="flex items-center gap-3 cursor-pointer">
+      <input type="checkbox" name="entry.1219378750" value="Tech Zone" class="accent-cyan-500 w-5 h-5">
+      <span>Tech Zone</span>
+    </label>
+
+    <label class="flex items-center gap-3 cursor-pointer">
+      <input type="checkbox" name="entry.1219378750" value="Seminar" class="accent-cyan-500 w-5 h-5">
+      <span>Seminar</span>
+    </label>
+
+    <label class="flex items-center gap-3 cursor-pointer">
+      <input type="checkbox" name="entry.1219378750" value="Fun Zone" class="accent-cyan-500 w-5 h-5">
+      <span>Fun Zone</span>
+    </label>
+
+    <label class="flex items-center gap-3 cursor-pointer">
+      <input type="checkbox" name="entry.1219378750" value="Exhibition" class="accent-cyan-500 w-5 h-5">
+      <span>Exhibition</span>
+    </label>
+  </div>
+</div>
+
+        <div>
+          <label for="name" class="block text-sm font-medium text-[var(--primary-cyan)]">Full Name</label>
+          <input type="text" name="entry.896480119" id="name" name="name" required class="mt-1 w-full rounded-md bg-black/60 border border-cyan-500 px-4 py-2 text-white" />
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium text-[var(--primary-cyan)]">Email</label>
+          <input type="email" name="entry.852060964" id="email" name="email" required class="mt-1 w-full rounded-md bg-black/60 border border-cyan-500 px-4 py-2 text-white" />
+        </div>
+        <div>
+          <label for="phone" class="block text-sm font-medium text-[var(--primary-cyan)]">Phone Number</label>
+          <input type="tel" name="entry.547195534" id="phone" name="phone" required pattern="[0-9]{10}" class="mt-1 w-full rounded-md bg-black/60 border border-cyan-500 px-4 py-2 text-white" />
+        </div>
+        <div>
+          <label for="college" class="block text-sm font-medium text-[var(--primary-cyan)]">College Name</label>
+          <input type="text" name="entry.1442696147" id="college" name="college" required class="mt-1 w-full rounded-md bg-black/60 border border-cyan-500 px-4 py-2 text-white" />
+        </div>
+        <div>
+          <label for="year" class="block text-sm font-medium text-[var(--primary-cyan)]">Year of Study</label>
+          <select name="entry.600330945" id="year" name="entry.1528607475" name="year" required class="mt-1 w-full rounded-md bg-black/60 border border-cyan-500 px-4 py-2 text-white">
+            <option value="">Select Year</option>
+            <option value="1">First Year</option>
+            <option value="2">Second Year</option>
+            <option value="3">Third Year</option>
+            <option value="4">Final Year</option>
+          </select>
+        </div>
+        <div>
+          <label for="department" class="block text-sm font-medium text-[var(--primary-cyan)]">Department</label>
+          <input type="text" name="entry.1710311057" id="department" name="department" required class="mt-1 w-full rounded-md bg-black/60 border border-cyan-500 px-4 py-2 text-white" />
+        </div>
+        <div class="text-center">
+          <button type="submit" class="mt-4 px-8 py-3 font-orbitron text-lg uppercase bg-cyan-500 text-black rounded-lg glow-button hover:scale-105 transition">Submit</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+</body>
+</html>

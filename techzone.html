@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tech Fest</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Poppins:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+    :root {
+        --primary-color: #3df5f5;
+        --secondary-color: #00ffff;
+        --tertiary-color: #3dd0f5;
+        --dark-overlay: rgba(16, 16, 22, 0.7);
+        --background-dark: #101016;
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+    .font-orbitron {
+        font-family: 'Orbitron', sans-serif;
+    }
+    .game-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition-property: transform;
+        transition-duration: 300ms;
+        transition-timing-function: ease-in-out;
+    }
+    .game-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px var(--primary-color), 0 0 30px var(--secondary-color);
+    }
+    .game-card-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    .game-card-title {
+        color: white;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.25rem;
+        font-weight: bold;
+        transition-property: transform, color;
+        transition-duration: 300ms;
+        transition-timing-function: ease-in-out;
+    }
+    .game-card:hover .game-card-title {
+        transform: translateY(-0.25rem);
+        color: var(--primary-color);
+    }
+    #game-details-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 0;
+        background: linear-gradient(to top, #1a1a2e, #2e4688, #0f1760);
+        overflow: hidden;
+        transition: all 0.5s ease-in-out;
+        border-top-left-radius: 100% 50%;
+        border-top-right-radius: 100% 50%;
+        transform: translateY(100%) scaleX(0.5);
+        opacity: 0;
+        box-shadow: 0 0 30px var(--tertiary-color);
+    }
+    #game-details-container.active {
+        height: 60%;
+        opacity: 1;
+        transform: translateY(0) scaleX(1);
+    }
+    #close-btn {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        color: white;
+        transition: color 0.3s ease;
+    }
+    #close-btn:hover {
+        color: var(--primary-color);
+    }
+</style>
+</head>
+<body class="bg-[var(--background-dark)] text-white">
+<div class="relative min-h-screen w-full" id="landing-page">
+<video autoplay="" class="absolute inset-0 w-full h-full object-cover" loop="" muted="">
+<source src="video4.mp4" type="video/mp4"/>
+</video>
+
+  <div id="overlay"></div>
+
+  <header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-10 py-4 bg-black/30 backdrop-blur-md w-full">
+  <div class="relative group flex items-center gap-4">
+    <a href="https://www.siwscollege.edu.in/" target="_blank" class="flex items-center gap-4 text-white no-underline hover:opacity-80 transition">
+      <img src="siws.png" alt="SIWS College Logo" class="h-12 w-12 object-contain"/>
+      <h2 class="tech-subtitle text-xl md:text-2xl font-orbitron font-bold uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-lime-300 via-teal-300 to-cyan-400 relative z-10">
+        S.I.W.S College
+      </h2>
+    </a>
+    <div class="absolute left-0 top-full mt-2 w-72 bg-white rounded-xl shadow-lg border border-cyan-400 p-4 flex items-center gap-4 opacity-0 pointer-events-none scale-y-0 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:scale-y-100 transition-all duration-300 origin-top z-50">
+      <img src="siws.png" alt="SIWS College Logo" class="h-14 w-14 object-contain"/>
+      <span class="text-gray-900 font-bold text-base leading-tight">
+        N.R. SWAMY COLLEGE OF COMMERCE & ECONOMICS AND SMT. THIRUMALAI COLLEGE OF SCIENCE (AUTONOMOUS)
+      </span>
+    </div>
+  </div>
+   <div class="flex items-center">
+    <button
+      style="padding: 12px 28px; font-family: 'Orbitron', sans-serif; font-size: 1rem; text-transform: uppercase; color: #00f7ff; background: transparent; border: 2px solid #00f7ff; border-radius: 12px; box-shadow: 0 0 12px #00f7ff33, 0 0 24px #00f7ff22; cursor: pointer; transition: all 0.3s ease-in-out;"
+      onmouseover="this.style.boxShadow='0 0 16px #00f7ff, 0 0 32px #00f7ff88, 0 0 48px #00f7ff55'; this.style.transform='scale(1.05)'"
+      onmouseout="this.style.boxShadow='0 0 12px #00f7ff33, 0 0 24px #00f7ff22'; this.style.transform='scale(1)'"
+      onclick="sessionStorage.setItem('skipIntro', 'true'); window.location.href='index.html#events'">
+      Back
+    </button>
+</div>
+</header>
+  <!-- Spacer to push content below fixed header -->
+  <div class="h-24"></div>
+
+<div class="absolute inset-0 bg-[var(--dark-overlay)]"></div>
+<main class="relative z-10 p-8 md:p-16 lg:p-24">
+<header class="text-center mb-16">
+<h1 class="font-orbitron text-5xl md:text-7xl font-black uppercase text-shadow" style="text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);">Tech Fest <span class="text-[var(--secondary-color)]">Games</span></h1>
+<p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto">Choose your challenge. Compete. Conquer.</p>
+</header>
+<div id="games-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+    <!-- Game cards will be injected here -->
+</div>
+</main>
+</div>
+<div id="game-details-container" onclick="closeGameDetails(event)">
+<div class="relative max-w-2xl w-full bg-transparent flex flex-col justify-center items-center text-center p-8 md:p-16 lg:p-24" style="margin:auto;" onclick="event.stopPropagation()">        <button id="close-btn" onclick="closeGameDetails()">
+            <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+        </button>
+        <h2 class="font-orbitron text-4xl md:text-6xl font-bold mb-4" id="game-title" style="text-shadow: 0 0 10px var(--primary-color);"></h2>
+        <p class="text-lg md:text-xl max-w-2xl mb-8" id="game-description"></p>
+        <div class="text-left max-w-2xl w-full">
+            <h4 class="font-orbitron text-2xl font-bold mb-2 text-[var(--secondary-color)]">Rules:</h4>
+            <p class="whitespace-pre-line text-base md:text-lg" id="game-rules"></p>
+        </div>
+    </div>
+</div>
+<!-- ...existing code... -->
+  <style>
+    :root {
+      --x: 0;
+      --y: 0;
+      --xp: 0;
+      --yp: 0;
+      --hue: calc(0 + (var(--xp) * 500));
+      --bg: hsl(0 0% 10%);
+      --size: 100px;
+      --glow: radial-gradient(50% 50% at center,
+          hsl(var(--hue) 80% 85%),
+          hsl(var(--hue) 80% 70%),
+          transparent) 
+          calc((var(--x) * 1px) - (var(--size) * 0.5)) 
+          calc((var(--y) * 1px) - (var(--size) * 0.5)) 
+          / var(--size) var(--size) no-repeat fixed;
+    }
+
+    /* Only target the special floating button */
+    .floating-glow-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      border-radius: 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 0.1ch;
+      background: var(--bg);
+      border: 4px solid transparent;
+      box-shadow: 0 1px hsl(0 0% 100% / 0.15) inset;
+      cursor: pointer;
+      background:
+        linear-gradient(var(--bg), var(--bg)) padding-box,
+        var(--glow),
+        linear-gradient(black, black) border-box;
+      transition: background-size 0.24s;
+      touch-action: none;
+      padding: 1rem 2rem;
+      z-index: 9999;
+    }
+
+    .floating-glow-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      box-shadow: 0 1px hsl(0 0% 100% / 0.15) inset;
+      background: var(--bg);
+      z-index: 2;
+      border-radius: 1rem;
+    }
+
+    .floating-glow-btn span {
+      background: var(--glow), rgb(38, 255, 244);
+      background-clip: text;
+      color: transparent;
+      z-index: 2;
+      position: relative;
+    }
+
+    :root:has(.floating-glow-btn:active) {
+      --size: 300px;
+    }
+
+    .floating-glow-btn::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      filter: blur(20px);
+      border: 4px solid transparent;
+      background: var(--glow);
+      border-radius: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="floating-glow-btn" onclick="window.location.href='regi2.html'">
+    <span>Register</span>
+  </button>
+
+  <script>
+    const glowBtn = document.querySelector(".floating-glow-btn");
+
+    const syncPointer = ({ x: pointerX, y: pointerY }) => {
+      const x = pointerX.toFixed(2);
+      const y = pointerY.toFixed(2);
+      const xp = (pointerX / window.innerWidth).toFixed(2);
+      const yp = (pointerY / window.innerHeight).toFixed(2);
+      document.documentElement.style.setProperty('--x', x);
+      document.documentElement.style.setProperty('--xp', xp);
+      document.documentElement.style.setProperty('--y', y);
+      document.documentElement.style.setProperty('--yp', yp);
+    };
+
+    // Only track pointer movement when hovering over this button
+    glowBtn.addEventListener('pointermove', syncPointer);
+  </script>
+<!-- ...existing code... -->
+<script>
+    // Edit or add games here
+    const games = [
+        {
+            title: "Hackathon",
+            image: "1.png",
+            description: "A coding marathon where teams build a project around a given theme within a fixed time.",
+            rules: "1. Teams of 2-4 members.\n2. Time limit:20-30 min.\n3. Use any programming language/framework. \n4. Must submit code + presentation/demo before deadline. \n5. Judges score on innovation, functionality, and presentation."
+        },
+        {
+            title: "Voice Command Challenge",
+            image: "2.png",
+            description: "Create or use existing APIs to control tasks through voice commands.",
+            rules: "1. Individual or 2-member team.\n2. Each round has a task (e.g., open a file, send a message, control LEDs).\n3. Accuracy & execution speed determine points.\n4. Bonus points for creativity (unique voice-controlled actions). "
+        },
+        {
+            title: "hack the password",
+            image: "22.png",
+            description: "A cryptography-based game where players decode messages and solve puzzles.",
+            rules: "1. Multiple rounds with increasing difficulty.\n2. Time-limited attempts (e.g., 3 minutes per round).\n3. No brute force software—only logic & clues allowed.\n4. Winner = fastest to solve the most rounds."
+        },
+        {
+            title: "Hack-a-Rap",
+            image: "20.png",
+            description: "Tech + Rap! Participants must create a short rap/song about coding, AI, or tech.",
+            rules: "1. Time to prepare: 10 minutes. Performance: 1-2 minutes.\n2. Must include at least 3 tech terms.\n3. Judged on creativity, flow, and audience reaction."
+        },
+        {
+            title: "tech escape room.",
+            image: "9.png",
+            description: "A digital or physical escape room where puzzles are coding- or tech-themed.",
+            rules: "1. Teams of 3-5.\n2. Must solve riddles, debug codes, or find hidden “keys” to escape.\n3.Time limit: 30-45 minutes.\n4. Fastest escape wins."
+        },
+        {
+            title: "AI Prompt Battle",
+            image: "14.png",
+            description: "Two participants compete by giving the best prompts to an AI (e.g., ChatGPT, image generator).",
+            rules: "1. 1v1 rounds.\n2. Theme given (e.g., “generate futuristic robot art”).\n3. Judges/Audience vote best AI output.\n4. Knockout format until a champion emerges."
+        },
+        {
+            title: "Chat bot ",
+            image: "4.png",
+            description: "Teams design a chatbot for a given scenario (e.g., college helpdesk, festival guide).",
+            rules: "1. Teams of 2-4.\n2. Must demonstrate live interaction.\n3. Judged on usefulness, accuracy, and creativity."
+        },
+        {
+            title: "Tower of code",
+            image: "1t.png",
+            description: "A coding + Jenga-style challenge. Each block has a coding question/task.",
+            rules: "1. Pick a block, solve the coding task.\n2. Wrong answers = block falls.\n3. Last team/player standing wins."
+        },
+        {
+            title: "Project making ",
+            image: "3d.png",
+            description: "Teams present innovative projects (hardware/software).",
+            rules: "1. Teams of up to 4.\n2. Must present demo + explain functionality.\n3. Judging: Innovation (40%), Feasibility (30%), Impact (30%)."
+        },
+        {
+            title: "Data analysis",
+            image: "12.png",
+            description: "Analyze a dataset and present insights.",
+            rules: "1. Teams/individuals.\n2. Dataset given at event.\n3. Must submit visualization + short report.\n4. Judging: Accuracy, creativity, real-world value."
+        },
+        {
+            title: "Algorithm Archaeology",
+            image: "4t.png",
+            description: "Dig into old/obscure algorithms and explain or improve them.",
+            rules: "1. Each team gets an “ancient algorithm” (e.g., early sorting/search).\n2. Must re-code and explain its working.\n3. Extra points for optimizing it."
+        },
+        {
+            title: "Promptopia",
+            image: "2t.png",
+            description: "A creativity battle using prompts for story/image generation.",
+            rules: "1. Theme-based rounds.\n2. Audience/judge votes.\n3. Creativity > correctness."
+        },
+        {
+            title: "Code Whisperer",
+            image: "17.png",
+            description: "Debug code only by listening—one player reads code, another fixes.",
+            rules: "1. Team of 2.\n2. One can only speak, other can only type.\n3. Fastest debug wins."
+        },
+        {
+            title: "Code & Collapse (Tech Jenga)",
+            image: "34t.png",
+            description: "Jenga blocks linked with coding challenges or trivia.",
+            rules: "1. Similar to Tower of Code but focused more on logic puzzles & trivia.\n2.Wrong answers = remove extra block."
+        },
+        {
+            title: "The Typing Titan",
+            image: "8t.png",
+            description: "Speed typing challenge with coding snippets or random text.",
+            rules: "1. 3 rounds (easy → hard).\n2. Accuracy + speed determine winner.\n3. No external typing tools allowed."
+        },
+        {
+            title: "No backspace mode",
+            image: "14t.png",
+            description: "Code or type text without using backspace/delete.",
+            rules: "1. Any mistake stays on screen.\n2. Judged on clarity + minimum errors.\n3. Time limit per round."
+        },
+        {
+            title: "Mixed language relay",
+            image: "5t.png",
+            description: "Relay coding in multiple languages.",
+            rules: "1. Teams of 3-4.\n2. Each member writes part of code in a different language (C, Python, Java, etc.).\n3. Final code must run successfully."
+        },
+        {
+            title: "Techno Bingo",
+            image: "3t.png",
+            description: "Bingo game with tech terms instead of numbers.",
+            rules: "1. Moderator calls out “bug fix,” “cloud,” “AI,” etc.\n2. First to complete row/column/diagonal wins."
+        },
+        {
+            title: "Code golf",
+            image: "16t.png",
+            description: "Write a program with the shortest possible code.",
+            rules: "1. Problem statement given.\n2. Shortest working code wins.\n3. Must explain logic."
+        },
+        {
+            title: " Data detactive ",
+            image: "1d.png",
+            description: "Participants solve mysteries hidden in data.",
+            rules: "1. Dataset contains “clues.”\n2. Must find patterns to answer riddles.\n3. Time-limited. Fastest detective wins."
+        },
+        {
+            title: "Debugging ",
+            image: "13.png",
+            description: "Fix buggy programs as fast as possible.",
+            rules: "1. Individual or team of 2.\n2. Code with intentional errors provided.\n3. Points for each bug fixed.\n4. Time-based scoring."
+        }
+    ];
+
+    // Render game cards
+    const gamesGrid = document.getElementById('games-grid');
+    games.forEach((game, idx) => {
+        const card = document.createElement('div');
+        card.className = "game-card aspect-w-1 aspect-h-1";
+        card.onclick = () => openGameDetails(idx);
+        card.innerHTML = `
+            <img alt="${game.title}" class="w-full h-full object-cover" src="${game.image}"/>
+            <div class="game-card-overlay">
+                <h3 class="game-card-title">${game.title}</h3>
+            </div>
+        `;
+        gamesGrid.appendChild(card);
+    });
+
+    const gameDetailsContainer = document.getElementById('game-details-container');
+    const landingPage = document.getElementById('landing-page');
+    const gameTitle = document.getElementById('game-title');
+    const gameDescription = document.getElementById('game-description');
+    const gameRules = document.getElementById('game-rules');
+
+    function openGameDetails(idx) {
+        const game = games[idx];
+        if (!game) return;
+        gameTitle.textContent = game.title;
+        gameDescription.textContent = game.description;
+        gameRules.textContent = game.rules;
+        gameDetailsContainer.classList.add('active');
+        landingPage.style.filter = 'blur(5px)';
+    }
+    function closeGameDetails(event) {
+        if (event && event.target !== gameDetailsContainer) return;
+        gameDetailsContainer.classList.remove('active');
+        landingPage.style.filter = 'none';
+    }
+</script>
+</body></html>

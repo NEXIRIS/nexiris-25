@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NEXIRIS'25</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+   <link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Poppins:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style>
+    :root{
+      --bg:#0a0f1c; --card:#0b1220; --accent:#c0c0c0; --muted:#94a3b8; --glass: rgba(255,255,255,0.04);
+      --radius:14px; --maxw:1100px; --pad:24px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(circle at 20% 20%, #0f172a 0%, #05070e 100%);color:#e6eef6;line-height:1.45}
+    .wrap{max-width:var(--maxw);margin:36px auto;padding:16px}
+
+    header{display:flex;align-items:center;gap:16px}
+    .logo{height:64px;width:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#a9a9a9);
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:#002;
+      box-shadow:0 6px 24px rgba(192,192,192,0.2)}
+    h1{font-size:28px;margin:0}
+    p.lead{color:var(--muted);margin:10px 0 18px}
+
+    .grid{display:grid;grid-template-columns:1fr 420px;gap:20px}
+    @media (max-width:980px){.grid{grid-template-columns:1fr} .aside{order:2}}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border-radius:var(--radius);padding:var(--pad);box-shadow:0 6px 30px rgba(2,6,23,0.6);}
+
+    .benefits{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:12px;margin-top:8px}
+    .benefit{background:var(--glass);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.05)}
+    .benefit h4{margin:0 0 6px;font-size:15px;color:var(--accent)}
+    .benefit p{margin:0;color:var(--muted);font-size:13px}
+
+    .tiers{display:flex;gap:12px;margin-top:16px}
+    .tier{flex:1;padding:12px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
+    .tier h3{margin:0 0 6px;color:var(--accent)}
+    .tier p{margin:0;color:var(--muted);font-size:13px}
+
+    .aside .card{position:sticky;top:24px}
+    label{display:block;font-size:13px;margin-bottom:6px}
+    input, select, textarea{width:100%;padding:10px 12px;border-radius:8px;
+      border:1px solid rgba(255,255,255,0.08);background:transparent;color:inherit;font-size:14px}
+    textarea{min-height:110px;resize:vertical}
+    .muted{color:var(--muted);font-size:13px}
+    .row{display:flex;gap:12px}
+    .row > *{flex:1}
+    .btn{display:inline-block;background:var(--accent);color:#022;padding:10px 14px;
+      border-radius:10px;font-weight:600;border:none;cursor:pointer;transition:0.2s}
+    .btn:hover{filter:brightness(1.1)}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent)}
+
+    .small{font-size:13px;color:var(--muted)}
+    .success{padding:12px;border-radius:10px;background:linear-gradient(90deg, rgba(192,192,192,0.12), rgba(169,169,169,0.06));
+      border:1px solid rgba(192,192,192,0.12);color:#f5f5f5}
+
+    footer{margin-top:18px;color:var(--muted);font-size:13px}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.03);font-weight:600;font-size:13px}
+    .logo-preview{display:flex;align-items:center;gap:10px}
+    .logo-preview img{height:36px;max-width:140px;object-fit:contain;border-radius:8px;background:#071428;padding:6px}
+  </style>
+</head>
+<body>
+  <header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-10 py-4 bg-black/30 backdrop-blur-md w-full">
+  <div class="relative group flex items-center gap-4">
+    <a href="https://www.siwscollege.edu.in/" target="_blank" class="flex items-center gap-4 text-white no-underline hover:opacity-80 transition">
+      <img src="siws.png" alt="SIWS College Logo" class="h-12 w-12 object-contain"/>
+      <h2 class="tech-subtitle text-xl md:text-2xl font-orbitron font-bold uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-lime-300 via-teal-300 to-cyan-400 relative z-10">
+        S.I.W.S College
+      </h2>
+    </a>
+    <div class="absolute left-0 top-full mt-2 w-72 bg-white rounded-xl shadow-lg border border-cyan-400 p-4 flex items-center gap-4 opacity-0 pointer-events-none scale-y-0 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:scale-y-100 transition-all duration-300 origin-top z-50">
+      <img src="siws.png" alt="SIWS College Logo" class="h-14 w-14 object-contain"/>
+      <span class="text-gray-900 font-bold text-base leading-tight">
+        N.R. SWAMY COLLEGE OF COMMERCE & ECONOMICS AND SMT. THIRUMALAI COLLEGE OF SCIENCE (AUTONOMOUS)
+      </span>
+    </div>
+  </div>
+   <div class="flex items-center">
+    <button
+      style="padding: 12px 28px; font-family: 'Orbitron', sans-serif; font-size: 1rem; text-transform: uppercase; color: #00f7ff; background: transparent; border: 2px solid #00f7ff; border-radius: 12px; box-shadow: 0 0 12px #00f7ff33, 0 0 24px #00f7ff22; cursor: pointer; transition: all 0.3s ease-in-out;"
+      onmouseover="this.style.boxShadow='0 0 16px #00f7ff, 0 0 32px #00f7ff88, 0 0 48px #00f7ff55'; this.style.transform='scale(1.05)'"
+      onmouseout="this.style.boxShadow='0 0 12px #00f7ff33, 0 0 24px #00f7ff22'; this.style.transform='scale(1)'"
+      onclick="sessionStorage.setItem('skipIntro', 'true'); window.location.href='sponsor.html'">
+      Back
+    </button>
+</div>
+</header>
+  <!-- Spacer to push content below fixed header -->
+  <div class="h-24"></div>
+
+  <div class="wrap">
+    <header>
+      <div class="logo">SP</div>
+      <div>
+        <h1>Become Our <span style="color:var(--accent)">Silver Partner</span></h1>
+        <p class="lead">Join <strong style="color: #facc15; ">NEXIRIS'25</strong> as a valued Silver Partner — gain strong visibility, reach an enthusiastic audience, and associate your brand with one of the biggest college fests in the region.</p>
+      </div>
+    </header>
+
+    <main class="grid" role="main">
+      <section class="card">
+        <h2 style="margin-top:0">Why Become a Silver Partner?</h2>
+        <p class="muted">The Silver Partner tier offers exceptional value, giving you presence across key promotional materials, stage mentions, and social media highlights at a competitive sponsorship level.</p>
+
+        <div class="benefits">
+          <div class="benefit">
+            <h4>Visible Branding</h4>
+            <p>Your logo on selected banners, posters, and digital media.</p>
+          </div>
+          <div class="benefit">
+            <h4>Social Media Shoutouts</h4>
+            <p>Regular mentions on our official fest social platforms.</p>
+          </div>
+          <div class="benefit">
+            <h4>Event Stall Space</h4>
+            <p>Booth space to connect directly with attendees.</p>
+          </div>
+          <div class="benefit">
+            <h4>Networking Access</h4>
+            <p>Opportunities to interact with student leaders and guests.</p>
+          </div>
+        </div>
+
+        <div class="tiers">
+          <div class="tier">
+            <h3>Primary Silver Partner</h3>
+            <p class="small">Prime logo placement • Stage mentions • Featured posts</p>
+          </div>
+          <div class="tier">
+            <h3>Associate Silver Partner</h3>
+            <p class="small">Shared placement • Limited stage mentions</p>
+          </div>
+        </div>
+
+        <h3 style="margin-top:18px">Silver Partner Deliverables</h3>
+        <ul class="muted">
+          <li>Logo on selected fest backdrops, posters, and website</li>
+          <li>Stage mention during opening/closing ceremonies</li>
+          <li>Social media mentions before and during the fest</li>
+          <li>Booth space in standard location</li>
+          <li>3 VIP passes to headline events</li>
+        </ul>
+
+        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.05);margin:18px 0">
+        <p class="muted">Ready to grow your brand presence at TechFest 2025? Fill out the form or contact <strong>partnerships@techfest.com</strong>.</p>
+
+        <div style="display:flex;gap:10px;margin-top:14px;align-items:center">
+          <button class="btn" onclick="document.getElementById('form-silver').scrollIntoView({behavior:'smooth'})">Enroll as Silver Partner</button>
+          <button class="btn ghost" onclick="window.print()">Print page</button>
+        </div>
+      </section>
+
+      <aside class="aside">
+        <div class="card" id="form-silver">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <div>
+              <div class="badge">Silver Partner Enrolment</div>
+              <div class="small muted" style="margin-top:6px">Limited slots — we'll confirm within 3 business days.</div>
+            </div>
+            <div class="logo-preview" title="Preview logo">
+              <img id="logoPreview" src="" alt="No logo" style="display:none">
+            </div>
+          </div>
+
+          <form id="silverForm" enctype="multipart/form-data" autocomplete="on" action="https://docs.google.com/forms/d/e/1FAIpQLScPvoHZcWyUbF4PYB9M8Tqn3B8zwehmhmuyKOSG8F_P58YLLA/formResponse" method="POST" class="space-y-6" target="hidden_iframe" onsubmit="formSubmitted()">
+            <label for="company">Company name</label>
+            <input id="company" name="entry.47258607" type="text" placeholder="e.g. Acme Corp" required>
+
+            <label for="contact">Contact person</label>
+            <input id="contact" name="entry.1353297369" type="text" placeholder="Full name" required>
+
+            <div class="row" style="margin-top:8px">
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="entry.713834419" type="email" placeholder="name@company.com" required>
+              </div>
+              <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="entry.1303113891" type="tel" placeholder="+91 98765 43210" required>
+              </div>
+            </div>
+
+            <label for="website" style="margin-top:8px">Website</label>
+            <input id="website" name="entry.805787748" type="url" placeholder="https://www.example.com">
+            <style>
+  #package option {
+    color: black;
+  }
+</style>
+
+            <label for="package" style="margin-top:8px">Desired package</label>
+            <select id="package" name="entry.838615464" required>
+              <option value="">Select Option</option>
+              <option value="primary">Primary Silver Partner</option>
+              <option value="associate">Associate Silver Partner</option>
+            </select>
+
+            <label for="message" style="margin-top:8px">Message / Special requests</label>
+            <textarea id="message" name="entry.1310062708" placeholder="Tell us about your branding goals or ideas"></textarea>
+
+            <div style="display:flex;align-items:center;gap:8px;margin-top:10px">
+              <input id="agree" name="agree" type="checkbox" required>
+              <label for="agree" class="small">I agree to be contacted regarding sponsorship. I understand this is an expression of interest, not a contract.</label>
+            </div>
+
+            <div style="display:flex;gap:8px;margin-top:12px;align-items:center">
+              <button class="btn" type="submit">Send Enrolment</button>
+              <button class="btn ghost" type="button" onclick="resetForm()">Reset</button>
+            </div>
+
+            <div id="result" style="margin-top:12px;display:none"></div>
+          </form>
+
+          <footer>
+            <div class="small muted">Need more info? Email <strong>partnerships@techfest.com</strong> or call +91 98765 43210.</div>
+          </footer>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+        onload="iframeLoaded()"></iframe>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+let submitting = false;
+
+function formSubmitted() {
+    submitting = true; // mark that we just submitted
+}
+
+
+function iframeLoaded() {
+    if (submitting) {
+        submitting = false;
+
+        // Show stylish alert after submission
+        Swal.fire({
+            title: '✅ Thank you for registering!',
+            text: 'See you at the Tech Fest.',
+            icon: 'success',
+            confirmButtonText: 'Go Back',
+            confirmButtonColor: '#3085d6',
+            background: '#1e1e1e',
+            color: '#fff'
+        }).then(() => {
+            // Redirect to index.html
+            window.location.href = 'sponsor.html';
+        });
+    }
+}
+</script>
+</body>
+</html>

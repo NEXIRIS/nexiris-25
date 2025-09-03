@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: url("bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Wrapper */
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    display: none;
+    overflow: hidden;
+
+    /* Neon glow effect */
+    box-shadow: 0 0 30px rgba(0, 238, 255, 0.5),
+                0 0 60px rgba(0, 238, 255, 0.4), 
+                0 0 100px rgba(0, 238, 255, 0.3);
+    animation: glowPulse 3s infinite ease-in-out;
+}
+
+/* Show popup */
+.wrapper.active-popup {
+    display: block;
+}
+
+/* Show register form */
+.wrapper.active .form-box.login {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.wrapper.active .form-box.register {
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+/* Glow Animation */
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 30px rgba(0, 238, 255, 0.5),
+                    0 0 60px rgba(0, 238, 255, 0.4),
+                    0 0 100px rgba(0, 238, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 50px rgba(0, 238, 255, 0.8),
+                    0 0 90px rgba(0, 238, 255, 0.6),
+                    0 0 140px rgba(0, 238, 255, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(0, 238, 255, 0.5),
+                    0 0 60px rgba(0, 238, 255, 0.4),
+                    0 0 100px rgba(0, 238, 255, 0.3);
+    }
+}
+
+/* Forms */
+.form-box {
+    position: absolute;
+    width: 100%;
+    padding: 40px;
+    transition: 0.5s;
+}
+
+.form-box.login {
+    left: 0;
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+.form-box.register {
+    left: 0;
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.form-box h2 {
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+}
+
+/* Input Boxes */
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    border-bottom: 2px solid #fff;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1em;
+    padding: 0 35px 0 5px;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #fff;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+    top: -5px;
+    font-size: 0.8em;
+    color: #0ef;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 1.2em;
+}
+
+/* Remember and Forgot */
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    color: #fff;
+    margin: 15px 0;
+}
+
+.remember-forgot label input {
+    accent-color: #0ef;
+    margin-right: 5px;
+}
+
+.remember-forgot a {
+    color: #0ef;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #0ef;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #000;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #00c3ff;
+}
+
+/* Login/Register Switch */
+.login-register {
+    text-align: center;
+    font-size: 0.9em;
+    color: #fff;
+    margin: 25px 0 10px;
+}
+
+.login-register a {
+    color: #0ef;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register a:hover {
+    text-decoration: underline;
+}
+
+/* Flash Message */
+.flash-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #00ffc8;
+    color: #000;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    z-index: 9999;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    animation: fadeout 10s forwards;
+    transition: opacity 0.3s ease;
+    border: 2px solid #008060;
+}
+
+.flash-message strong {
+    font-weight: bold;
+    color: #003300;
+}
+
+@keyframes fadeout {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}

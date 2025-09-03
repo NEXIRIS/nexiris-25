@@ -1,0 +1,194 @@
+#dept-roller {
+  will-change: transform;
+}
+
+#dept-roller-container {
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2em;
+}
+#dept-roller-1, #dept-roller-2 {
+  height: 1.2em;
+  line-height: 1.2em;
+  margin: 0;
+  padding: 0;
+}
+#dept-roller-container {
+  vertical-align: middle;
+}
+@keyframes custom-float {
+  0%, 100% { transform: translateY(-50%) translateY(0); }
+  50% { transform: translateY(-50%) translateY(-30px); }
+}
+
+.bg-red1 {
+  background: rgba(139, 92, 246, 0.15);
+  border: 2px solid #8b5cf6;
+  border-radius: 16px;
+  box-shadow: 0 0 20px #8b5cf688;
+  padding: 1rem 0.5rem;         /* smaller padding for mobile */
+  min-width: 0;                 /* allow shrinking on mobile */
+  width: 100%;                  /* fill parent */
+  max-width: 400px;             /* limit on large screens */
+  margin: 0 auto;               /* center on mobile */
+}
+
+@media (min-width: 480px) {
+  .bg-red1 {
+    padding: 2rem 2.5rem;
+    min-width: 340px;
+    max-width: 600px;
+  }
+}
+.counter-box {
+  min-width: 70px;                          
+}
+
+@keyframes sponsor-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-sponsor-marquee {
+  animation: sponsor-marquee 20s linear infinite;
+  width: max-content;
+}
+
+@media (max-width: 720px) {
+  #events .max-w-7xl {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+    gap: 1.5rem !important;
+  }
+  #events .card-glow {
+    min-height: 0;
+    height: auto;
+  }
+}
+
+.event-notice {
+  color: #fff;
+  background: linear-gradient(90deg, #a5a1f4, #53c8eb, #1500f7, #000000);
+  background-size: 200% 200%;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  box-shadow: 0 0 32px #2f17e7, 0 0 64px #6aefb7;
+  animation: invitation-glow 1.5s infinite alternate, invitation-gradient 4s linear infinite;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px #010000, 0 0 24px #252cfd;
+  font-size: 2rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+@keyframes invitation-glow {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+
+@keyframes invitation-gradient {
+  0% { background-position: 0% 50%;}
+  100% { background-position: 100% 50%;}
+}
+
+@keyframes water-drop {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.6;
+  }
+  60% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.water-drop {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, #00fff7 30%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: water-drop 0.8s ease-out forwards;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+@keyframes ripple-spread {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.4;
+  }
+  70% {
+    transform: scale(6);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(12);
+    opacity: 0;
+  }
+}
+
+.ripple-effect {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(rgba(0, 255, 247, 0.15) 20%, transparent 70%);
+  transform: translate(-50%, -50%);
+  animation: ripple-spread 1.2s ease-out forwards;
+  z-index: 9999;
+}
+
+.group:hover .group-hover\:scale-y-100 {
+  transform: scaleY(1);
+}
+.group-hover\:scale-y-100 {
+  transform: scaleY(0);
+  transition: transform 0.3s;
+  transform-origin: top;
+}
+
+.logo-wrapper {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #00ff00;
+  box-shadow: 0 0 12px #00ff00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  animation: ringPulse 2s infinite ease-in-out;
+}
+
+
+#matrix {
+  animation: fadeOutRain 3s ease-in-out forwards;
+}
+
+@keyframes fadeOutRain {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
